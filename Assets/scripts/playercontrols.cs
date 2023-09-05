@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unityengine.InputSystem;
+using UnityEngine.InputSystem;
 
 public class playercontrols : MonoBehaviour
 {
@@ -13,21 +13,22 @@ public class playercontrols : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = Getcomponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
-    void Onmove(InputVaule movenentvaule)
+    void OnMove(InputValue movementvalue)
     {
-        vector2 movementvector = movementvaule.get<Vector2>();
+        Vector2 movementvector = movementvalue.Get<Vector2>();
 
         movementx = movementvector.x;
         movementy = movementvector.y;
 
     }
 
-    void Fixedupdate
+    void FixedUpdate()
     {
-        vector3 movement = new vector3(movementx, 0.0f, movementy);
+        Vector3 Movement = new Vector3(movementx, 0.0f, movementy);
 
-        rb.Addforce(MovementVector);
+        rb.AddForce(Movement);
     }
+}
