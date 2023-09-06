@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class playercontrols : MonoBehaviour
 {
+    public float speed = 0;
 
     private Rigidbody rb;
     private float movementx;
@@ -29,6 +30,6 @@ public class playercontrols : MonoBehaviour
     {
         Vector3 Movement = new Vector3(movementx, 0.0f, movementy);
 
-        rb.AddForce(Movement);
+        rb.AddForce(Movement * speed );
     }
 }
