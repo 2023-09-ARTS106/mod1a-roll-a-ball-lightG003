@@ -30,6 +30,13 @@ public class playercontrols : MonoBehaviour
     {
         Vector3 Movement = new Vector3(movementx, 0.0f, movementy);
 
-        rb.AddForce(Movement * speed );
+        rb.AddForce(Movement * speed);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Pickup"))
+        {
+            other.gameObject.SetActive(false);
+        }
     }
 }
